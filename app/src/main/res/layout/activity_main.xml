@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/img_path"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="No image"
+        app:layout_constraintEnd_toStartOf="@+id/img_load"
+        tools:layout_editor_absoluteY="67dp" />
+
+    <Button
+        android:id="@+id/img_load"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:text="parcourir"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="54dp"
+        android:background="@color/ColorBluePrim"
+        android:shadowColor="@color/ColorBlueDark"
+        />
+
+    <ImageView
+        android:id="@+id/source_img"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:foregroundGravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintTop_toBottomOf="@+id/img_load"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graph"
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        app:layout_constraintTop_toBottomOf="@+id/source_img" />
+
+    <Button
+        android:id="@+id/load_hist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Histogram"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/graph"
+        app:layout_constraintWidth_percent="0.33"
+        android:background="@color/ColorBluePrim"
+        android:shadowColor="@color/ColorBlueDark"
+        />
+
+    <Button
+        android:id="@+id/load_comul"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Hist Comulé"
+        app:layout_constraintEnd_toStartOf="@+id/load_pond"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/load_hist"
+        app:layout_constraintTop_toBottomOf="@+id/graph"
+        app:layout_constraintWidth_percent="0.33"
+        android:background="@color/ColorBluePrim"
+        android:shadowColor="@color/ColorBlueDark"
+        />
+
+    <Button
+        android:id="@+id/load_pond"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Hist Ponderie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/graph"
+        app:layout_constraintWidth_percent="0.33"
+        android:background="@color/ColorBluePrim"
+        android:shadowColor="@color/ColorBlueDark"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
