@@ -3,3 +3,6 @@ this project is an android app that shows the different types of histograms of a
 
 # Screenshots 
 ![image 1](/screenshots/histoscreenshot2.PNG?raw=false) ![image 1](/screenshots/histoscreenshot3.PNG?raw=false) ![image 1](/screenshots/histoscreenshot4.PNG?raw=false)
+# Library 
+ - Android support library
+ - [GraphView](https://github.com/jjoe64/GraphView)
