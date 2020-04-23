@@ -10,22 +10,24 @@
         android:id="@+id/img_path"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintVertical_bias="0.9"
         android:text="No image"
+        app:layout_constraintBottom_toTopOf="@+id/source_img"
         app:layout_constraintEnd_toStartOf="@+id/img_load"
-        tools:layout_editor_absoluteY="67dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/img_load"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:text="parcourir"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="54dp"
+
         android:background="@color/ColorBluePrim"
         android:shadowColor="@color/ColorBlueDark"
-        />
+        android:text="parcourir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/source_img"
@@ -33,57 +35,65 @@
         android:layout_height="0dp"
         android:foregroundGravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_load"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graph"
         android:layout_width="match_parent"
         android:layout_height="200dip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/source_img" />
 
-    <Button
-        android:id="@+id/load_hist"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Histogram"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/graph"
-        app:layout_constraintWidth_percent="0.33"
-        android:background="@color/ColorBluePrim"
-        android:shadowColor="@color/ColorBlueDark"
-        />
 
-    <Button
-        android:id="@+id/load_comul"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Hist Comulé"
-        app:layout_constraintEnd_toStartOf="@+id/load_pond"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/load_hist"
-        app:layout_constraintTop_toBottomOf="@+id/graph"
-        app:layout_constraintWidth_percent="0.33"
-        android:background="@color/ColorBluePrim"
-        android:shadowColor="@color/ColorBlueDark"
-        />
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <Button
-        android:id="@+id/load_pond"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Hist Ponderie"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/graph"
-        app:layout_constraintWidth_percent="0.33"
-        android:background="@color/ColorBluePrim"
-        android:shadowColor="@color/ColorBlueDark"
-        />
+        <Button
+            android:id="@+id/load_hist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/ColorBluePrim"
+            android:shadowColor="@color/ColorBlueDark"
+            android:text="Histogram"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/graph" />
+
+        <Button
+            android:id="@+id/load_comul"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/ColorBluePrim"
+            android:shadowColor="@color/ColorBlueDark"
+            android:text="Hist Comulé"
+            app:layout_constraintEnd_toStartOf="@+id/load_pond"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/load_hist"
+            app:layout_constraintTop_toBottomOf="@+id/graph" />
+
+        <Button
+            android:id="@+id/load_pond"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/ColorBluePrim"
+            android:shadowColor="@color/ColorBlueDark"
+            android:text="Hist Ponderie"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/graph" />
+
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
