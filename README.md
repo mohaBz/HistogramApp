@@ -6,8 +6,8 @@ this project is an android app that shows the different types of histograms of a
 # Library 
  - Android support library
  - [GraphView](https://github.com/jjoe64/GraphView)
- - [RxJava2] (https://github.com/ReactiveX/RxJava)
- - [Dagger] (https://github.com/google/dagger)
+ - [RxJava2](https://github.com/ReactiveX/RxJava)
+ - [Dagger](https://github.com/google/dagger)
  # Architecture
   - MVP 
   - Dependency injection
