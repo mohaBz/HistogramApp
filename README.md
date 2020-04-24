@@ -12,3 +12,5 @@ this project is an android app that shows the different types of histograms of a
   - MVP 
   - Dependency injection
   - Java
+# Developed By
+ Mohamed Bouzouaelgh
