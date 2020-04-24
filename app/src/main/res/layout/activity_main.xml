@@ -61,7 +61,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/ColorBluePrim"
-            android:shadowColor="@color/ColorBlueDark"
             android:text="Histogram"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -74,7 +73,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/ColorBluePrim"
-            android:shadowColor="@color/ColorBlueDark"
             android:text="Hist Comulé"
             app:layout_constraintEnd_toStartOf="@+id/load_pond"
             app:layout_constraintHorizontal_bias="1.0"
@@ -87,7 +85,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/ColorBluePrim"
-            android:shadowColor="@color/ColorBlueDark"
             android:text="Hist Ponderie"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/graph" />

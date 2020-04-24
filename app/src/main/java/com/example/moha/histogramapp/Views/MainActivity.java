@@ -135,25 +135,25 @@ public class MainActivity extends AppCompatActivity implements Presenter.View{
 
         @Override
         public void activateHistograme() {
-            load_grph.setVisibility(View.INVISIBLE);
-            load_pondr.setVisibility(View.VISIBLE);
-            load_comul.setVisibility(View.VISIBLE);
+            load_grph.setBackgroundColor(getResources().getColor(R.color.ColorBluePrim));
+            load_pondr.setBackgroundColor(getResources().getColor(R.color.ColorBlueDark));
+            load_comul.setBackgroundColor(getResources().getColor(R.color.ColorBlueDark));
             graph.setVisibility(View.VISIBLE);
         }
 
         @Override
         public void activateHistogramComule() {
-            load_comul.setVisibility(View.INVISIBLE);
-            load_pondr.setVisibility(View.VISIBLE);
+            load_comul.setBackgroundColor(getResources().getColor(R.color.ColorBluePrim));
+            load_pondr.setBackgroundColor(getResources().getColor(R.color.ColorBlueDark));
             graph.setVisibility(View.VISIBLE);
-            load_grph.setVisibility(View.VISIBLE);
+            load_grph.setBackgroundColor(getResources().getColor(R.color.ColorBlueDark));
         }
 
         @Override
         public void activateHistogramePndr() {
-            load_grph.setVisibility(View.VISIBLE);
-            load_comul.setVisibility(View.VISIBLE);
-            load_pondr.setVisibility(View.INVISIBLE);
+            load_grph.setBackgroundColor(getResources().getColor(R.color.ColorBlueDark));
+            load_comul.setBackgroundColor(getResources().getColor(R.color.ColorBlueDark));
+            load_pondr.setBackgroundColor(getResources().getColor(R.color.ColorBluePrim));
             graph.setVisibility(View.VISIBLE);
         }
 
