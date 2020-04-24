@@ -1,95 +1,38 @@
 package com.example.moha.histogramapp.Presenter;
 
-import com.example.moha.histogramapp.Utils.BaseSchedulerProvider;
-import com.example.moha.histogramapp.Data.ImageModel;
-
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
-
+import com.example.moha.histogramapp.ImageDataRepository;
+import com.example.moha.histogramapp.Utils.Schedulers.BaseSchedulerProvider;
+import javax.inject.Inject;
 public class PresenterImpl implements Presenter {
-    private ImageModel imageModel;
-    private View view;
-    private BaseSchedulerProvider schedulerProvider;
-
-    public PresenterImpl(View view,BaseSchedulerProvider baseSchedulerProvider){
+    public View view;
+    public BaseSchedulerProvider schedulerProvider;
+    public ImageDataRepository imageDataRepository;
+    @Inject
+    public PresenterImpl(View view,BaseSchedulerProvider baseSchedulerProvider,ImageDataRepository imageDataRepository){
         this.view=view;
         this.schedulerProvider=baseSchedulerProvider;
+        this.imageDataRepository=imageDataRepository;
     }
     @Override
     public void onHistogramClicked() {
-         imageModel.getGrayBins().observeOn(schedulerProvider.ui()).subscribe(new Observer<int[]>() {
-             @Override
-             public void onSubscribe(Disposable d) {
-
-             }
-
-             @Override
-             public void onNext(int[] ints) {
-               view.showGraph(ints);
-               view.activateHistograme();
-             }
-
-             @Override
-             public void onError(Throwable e) {
-
-             }
-
-             @Override
-             public void onComplete() {
-
-             }
+         imageDataRepository.getImageModel().getGrayBins().observeOn(schedulerProvider.ui()).subscribe(nextEvent->{
+             view.showGraph(nextEvent);
+             view.activateHistograme();
          });
     }
-
     @Override
     public void onHistoComuleClicked() {
-        imageModel.getHistComuleBins().observeOn(schedulerProvider.ui()).subscribe(new Observer<int[]>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-
-            }
-
-            @Override
-            public void onNext(int[] ints) {
-                view.showGraph(ints);
-                view.activateHistogramComule();
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
+        imageDataRepository.getImageModel().getHistComuleBins().observeOn(schedulerProvider.ui()).subscribe(nextEvent->{
+            view.showGraph(nextEvent);
+            view.activateHistogramComule();
         });
     }
 
     @Override
     public void onHistPonderClicked() {
-        imageModel.getHistPndrBins().observeOn(schedulerProvider.ui()).subscribe(new Observer<int[]>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-
-            }
-
-            @Override
-            public void onNext(int[] ints) {
-                view.showGraph(ints);
-                view.activateHistogramePndr();
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
+        imageDataRepository.getImageModel().getHistPndrBins().observeOn(schedulerProvider.ui()).subscribe(nextEvent->{
+            view.showGraph(nextEvent);
+            view.activateHistogramePndr();
         });
     }
 
@@ -99,13 +42,18 @@ public class PresenterImpl implements Presenter {
     }
 
     @Override
-    public void setImageModel(ImageModel model) {
-        this.imageModel=model;
-        view.showImage(model.getImage(),"");
+    public ImageDataRepository getImageDataRepo() {
+        return imageDataRepository;
     }
+
 
     @Override
     public void onCreate() {
         view.initGraph();
+    }
+
+    @Override
+    public void onImageResult() {
+        view.showImage(imageDataRepository.getImageModel().getImage(),"");
     }
 }

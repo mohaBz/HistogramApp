@@ -4,6 +4,8 @@ import android.graphics.Bitmap;
 
 import com.example.moha.histogramapp.Utils.HistogramCalculationUtils;
 
+import javax.inject.Inject;
+
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -11,9 +13,16 @@ public class ImageModel {
     private Bitmap image;
     private String name;
 
-    public ImageModel(Bitmap image,String name){
-        this.image=image;
-        this.name=name;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Inject
+    public ImageModel(){
     }
     public Observable<int[]> getGrayBins(){
 

@@ -1,4 +1,4 @@
-package com.example.moha.histogramapp.Utils;
+package com.example.moha.histogramapp.Utils.Schedulers;
 
 import io.reactivex.Scheduler;
 import io.reactivex.annotations.NonNull;

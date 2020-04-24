@@ -3,6 +3,7 @@ package com.example.moha.histogramapp.Presenter;
 import android.graphics.Bitmap;
 
 import com.example.moha.histogramapp.Data.ImageModel;
+import com.example.moha.histogramapp.ImageDataRepository;
 
 
 public interface Presenter {
@@ -11,8 +12,9 @@ public interface Presenter {
     void onHistoComuleClicked();
     void onHistPonderClicked();
     void onLoadImageClicked();
-    void setImageModel(ImageModel model);
+    ImageDataRepository getImageDataRepo();
     void onCreate();
+    void onImageResult();
 
     public interface View{
     void showGraph(int[] bins);
